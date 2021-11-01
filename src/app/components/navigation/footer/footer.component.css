@@ -1,0 +1,89 @@
+@media screen and (max-width: 769px) {
+  .footer .col-6 {
+    padding-left: 50px;
+
+  }
+}
+
+.footer {
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
+h4 {
+  font-family: 'Raleway', sans-serif;
+  color: #002832;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: #6f6f6f;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  color: #ccc;
+}
+
+.socials {
+  padding-top: 55px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.icon.social:hover {
+  background: #262626;
+  color: #fff;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.icon.social {
+  float: left;
+  margin: 0 15px 0 15px;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  border: solid 2px;
+}
+
+.icon i {
+  font-size: 20px;
+  position: absolute;
+  left: 11px;
+  top: 10px;
+}
+.icon.social.fb i {
+  left: 13px;
+  top: 10px;
+}
+
+.icon {
+  position: relative;
+  text-align: center;
+  width: 0px;
+  height: 0px;
+  padding: 20px;
+  border-radius: 20px;
+  color: #FFFFFF;
+}
+
+
+.copyright {
+  background: #fff;
+  margin: 0px auto 0 auto;
+  padding: 0px 10px 20px 10px;
+  color: #002832;
+  text-align: center;
+}

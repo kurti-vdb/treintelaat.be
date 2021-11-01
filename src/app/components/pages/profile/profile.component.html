@@ -1,0 +1,31 @@
+<div class="app">
+  <app-header></app-header>
+  <h4>{{ 'profile' | translate }}</h4>
+
+  <form [formGroup]="form" (ngSubmit)="updateUser()">
+    <div class="profile-row">
+      <div class="col">
+        <div class="circle-border">
+          <div class="circle">
+            <img class="avatar" *ngIf="!isSocialLogin" [src]="getAvatarFromSpaces()" >
+            <img class="avatar" *ngIf="isSocialLogin" [src]="getAvatar()" >
+          </div>
+        </div>
+
+        <app-image-cropper (onSelectImage)='selectImage($event)'></app-image-cropper>
+
+        <input type="text" placeholder="{{ 'username' | translate}}" value="{{ user.username }}" formControlName="username">
+        <input type="text" placeholder="{{ 'firstname' | translate}}" value="{{ user.firstname }}" formControlName="firstname">
+        <input type="text" placeholder="{{ 'lastname' | translate}}" value="{{ user.lastname }}" formControlName="lastname" >
+        <input type="text" placeholder="{{ 'city' | translate}}" value="{{ user.city }}"  formControlName="city">
+        <input type="text" placeholder="{{ 'country' | translate}}" value="{{ user.country }}" formControlName="country">
+      </div>
+    </div>
+    <div class="btn-wrapper">
+      <button type="submit">{{ 'save' | translate}}</button>
+    </div>
+
+  </form>
+
+</div>
+<app-footer></app-footer>

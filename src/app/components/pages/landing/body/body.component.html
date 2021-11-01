@@ -1,0 +1,48 @@
+<div class="body">
+  <h2>{{ 'latest-notifications' | translate }}</h2>
+
+  <!-- Desktop block -->
+  <div class="grid" *ngIf="!isMobile && !isTablet">
+    <div class="delay-row header">
+      <div>
+        <img class="hide" src="assets/images/avatars/avatar-1.jpg" width="40" height="40" />
+      </div>
+      <div class="user">{{ 'user' | translate }}</div>
+      <div class="from">{{ 'from' | translate }}</div>
+      <div class="to">{{ 'to' | translate }}</div>
+      <div class="date">{{ 'date' | translate }}</div>
+      <div>{{ 'delay' | translate }}</div>
+    </div>
+    <div class="delay-row" *ngFor="let delay of delays | paginate: { itemsPerPage: 10, currentPage: page }">
+      <div>
+        <img class="hide" src="{{ delay.avatar }}" width="40" height="40" />
+      </div>
+      <div class="user">{{ delay.user }}</div>
+      <div class="from">{{ delay.from }}</div>
+      <div class="to">{{ delay.to }}</div>
+      <div class="date">{{ delay.date }}</div>
+      <div><span class="delay">{{ delay.delay }}</span><i class="fas fa-ellipsis-h"></i></div>
+    </div>
+  </div>
+
+  <!-- Mobile block -->
+  <div class="grid" *ngIf="isMobile || isTablet">
+
+    <div class="delay-row-mobile" *ngFor="let delay of delays | paginate: { itemsPerPage: 10, currentPage: page }">
+      <div class="sidebar"><img class="" src="{{ delay.avatar }}" width="35" height="35" /></div>
+      <div class="main">
+        <div class="from-to">{{ delay.from }} - {{ delay.to }}</div>
+        <div class="date-mobile">{{ delay.date }}</div>
+      </div>
+      <div class="sidebar delay">{{ delay.delay }}</div>
+    </div>
+
+  </div>
+
+  <pagination-controls class="grid-pagination"
+                        (pageChange)="page = $event"
+                        previousLabel=""
+                        nextLabel=""
+                      >
+  </pagination-controls>
+</div>

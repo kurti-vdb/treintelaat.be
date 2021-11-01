@@ -1,0 +1,37 @@
+<nav>
+  <div class="logo">
+    <img src="assets/images/logo.png">
+    <span class="logo-title">treintelaat.be</span>
+  </div>
+  <div class="nav-right">
+    <div class="avatar" *ngIf="userIsAuthenticated && !isSocialLogin">
+      <img src="{{ spacesUrl }}{{user.avatar }}" alt="{{ user.username }}">
+      <span class="username">{{ user.username }}</span>
+    </div>
+    <div class="avatar" *ngIf="userIsAuthenticated && isSocialLogin">
+      <img src="{{user.avatar }}" alt="{{ user.username }}">
+    </div>
+    <div class='nav-menu'>
+      <input class="menu-checkbox" type="checkbox" id="menu-checkbox" [checked]="checked" (change)="checked = !checked"/>
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+      <ul id="nav-items" class="nav-items" *ngIf="!userIsAuthenticated">
+        <li routerLinkActive="active"><a routerLink="/{{ 'overview' | translate | lowercase }}">{{ 'overview' | translate }}</a></li>
+        <li routerLinkActive="active"><a (click)="openModal('login')">{{ 'login' | translate }}</a></li>
+        <li routerLinkActive="active"><a (click)="openModal('join')">{{ 'register' | translate }}</a></li>
+        <li routerLinkActive="active"><a routerLink="/{{ 'language' | translate | lowercase }}">{{ 'language' | translate }}</a></li>
+      </ul>
+
+      <ul id="nav-items" class="nav-items" *ngIf="userIsAuthenticated">
+        <li routerLinkActive="active"><a routerLink="/{{ 'dashboard' | translate | lowercase }}">{{ 'dashboard' | translate }}</a></li>
+        <li routerLinkActive="active"><a routerLink="/{{ 'profile' | translate | lowercase }}">{{ 'profile' | translate }}</a></li>
+        <li routerLinkActive="active"><a routerLink="/{{ 'account' | translate | lowercase }}">{{ 'account' | translate }}</a></li>
+        <li routerLinkActive="active"><a (click)="logout()">{{ 'logout' | translate }}</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</nav>
+
+<app-modalfactory [modalID]="modalID" (modalEvent)="openModalFromChildEvent($event)"></app-modalfactory>

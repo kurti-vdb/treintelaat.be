@@ -1,0 +1,110 @@
+.body {
+  margin-top: 100px;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+h2 {
+  margin-bottom: 35px;
+  text-align: center;
+}
+.delay-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center; /* Horizontal center alignment */
+  color: #8a8899;
+  font-size: 14px;
+  background: #f9f9f9;
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.delay-row img {
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.delay-row.header {
+  font-size: 1.3rem !important;
+  color: #3b3a3a;
+}
+.delay-row.header .hide{
+  visibility: hidden;
+}
+.delay-row .user {
+  margin-left: 20px;
+  width: 200px;
+}
+.delay-row .from {
+  margin-left: 10px;
+  width: 150px;
+}
+.delay-row .to {
+  margin-left: 10px;
+  width: 150px;
+}
+.delay-row .date {
+  margin-left: 10px;
+  width: 150px;
+  margin-right: 20px;
+}
+.delay-row div:last-child {
+  margin-left: auto;
+  color: #8a8899;
+}
+.delay {
+  margin: 0 15px;
+  color: red;
+}
+.delay-row-mobile {
+  display: flex;
+  padding: 5px;
+  color: #8a8899;
+  background: #f9f9f9;
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.sidebar {
+  flex: 1;
+  font-size: 0.8rem;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center; /* Horizontal center alignment */
+  flex-direction: row;
+}
+.main {
+  flex: 3;
+}
+.from-to {
+  font-size: 0.9rem;
+}
+.date-mobile {
+  font-size: 0.75rem;
+}
+.grid-pagination {
+  margin:  0 auto;
+  text-align: center;
+}
+.grid-pagination /deep/ ul, ol {
+  padding-left: 0px;
+}
+.grid-pagination /deep/ .ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  color:rgb(0, 204, 255);
+  cursor: default;
+  background: transparent;
+}
+.grid-pagination /deep/ .ngx-pagination .pagination-next a::after, .grid-pagination /deep/ .ngx-pagination .pagination-next.disabled::after {
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>');
+  display: inline-block;
+  margin-left: 0rem;
+}
+.grid-pagination /deep/ .ngx-pagination .pagination-previous a::before, .grid-pagination /deep/ .ngx-pagination .pagination-previous.disabled::before {
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>');
+  display: inline-block;
+  margin-right: 0rem;
+}

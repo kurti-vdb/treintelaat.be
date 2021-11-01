@@ -1,0 +1,128 @@
+<form class="login-container" [formGroup]="form">
+  <h1>{{ 'login' | translate  }}</h1>
+  <span class="close" (click)="closeModal()" >&times;</span>
+  <div class="email-inputs">
+
+    <input type="text" placeholder="email" formControlName="email">
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error">
+      <div *ngIf="email?.errors?.required">Email is vereist.</div>
+      <div *ngIf="email?.errors?.email">Ongeldig emailadres.</div>
+    </div>
+
+    <div class="password-input">
+      <input [type]="show ? 'text' : 'password'" type="password" placeholder="password" formControlName="password">
+      <svg (click)="showPassword()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+      </svg>
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+        <div *ngIf="password?.errors?.required">
+          Paswoord is vereist.
+        </div>
+        <div *ngIf="password?.errors?.minlength">
+          Minimum 6 karakters.
+        </div>
+      </div>
+      <a class="forgot-password" [routerLink]="'/account/recover'">{{ 'forgot-password' | translate  }}</a>
+    </div>
+
+    <button class="btn-login" (click)="login()">{{ 'login' | translate  }}</button>
+
+    <div class="no-account">
+      {{ 'dont-have-account' | translate  }}
+      <a class="bold" (click)="openRegisterModal()">{{ 'register-now' | translate  }}</a>
+    </div>
+
+    <div class="social-login-title">{{ 'or-signin-with' | translate  }}</div>
+
+    <div class="social-buttons">
+      <button class="facebook" (click)="signInWithFB()">Facebook</button>
+      <button class="google" (click)="signInWithGoogle()">Google</button>
+    </div>
+
+    <div class="social-login-title">{{ 'or' | translate  }}</div>
+
+    <button class="btn-login face-id" type="submit">
+      <span>{{ 'Login with' | translate  }}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 80 80" version="1.1">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Face-ID" fill="#000000">
+            <g id="Corners" fill-rule="nonzero">
+              <g id="Corner">
+                <path d="M4.11428571,21.9428571 L4.11428571,13.0285714 C4.11428571,7.99327149 7.99327149,4.11428571 13.0285714,4.11428571 L21.9428571,4.11428571 C23.0789858,4.11428571 24,3.19327149 24,2.05714286 C24,0.921014229 23.0789858,0 21.9428571,0 L13.0285714,0 C5.72101423,0 0,5.72101423 0,13.0285714 L0,21.9428571 C0,23.0789858 0.921014229,24 2.05714286,24 C3.19327149,24 4.11428571,23.0789858 4.11428571,21.9428571 Z"/>
+              </g>
+              <g id="Corner" transform="translate(68.070175, 11.929825) scale(-1, 1) translate(-68.070175, -11.929825) translate(56.140351, 0.000000)">
+                <path d="M4.11428571,21.9428571 L4.11428571,13.0285714 C4.11428571,7.99327149 7.99327149,4.11428571 13.0285714,4.11428571 L21.9428571,4.11428571 C23.0789858,4.11428571 24,3.19327149 24,2.05714286 C24,0.921014229 23.0789858,0 21.9428571,0 L13.0285714,0 C5.72101423,0 0,5.72101423 0,13.0285714 L0,21.9428571 C0,23.0789858 0.921014229,24 2.05714286,24 C3.19327149,24 4.11428571,23.0789858 4.11428571,21.9428571 Z"/>
+              </g>
+              <g id="Corner" transform="translate(11.929825, 68.070175) scale(1, -1) translate(-11.929825, -68.070175) translate(0.000000, 56.140351)">
+                <path d="M4.11428571,21.9428571 L4.11428571,13.0285714 C4.11428571,7.99327149 7.99327149,4.11428571 13.0285714,4.11428571 L21.9428571,4.11428571 C23.0789858,4.11428571 24,3.19327149 24,2.05714286 C24,0.921014229 23.0789858,0 21.9428571,0 L13.0285714,0 C5.72101423,0 0,5.72101423 0,13.0285714 L0,21.9428571 C0,23.0789858 0.921014229,24 2.05714286,24 C3.19327149,24 4.11428571,23.0789858 4.11428571,21.9428571 Z"/>
+              </g>
+              <g id="Corner" transform="translate(68.070175, 68.070175) scale(-1, -1) translate(-68.070175, -68.070175) translate(56.140351, 56.140351)">
+                <path d="M4.11428571,21.9428571 L4.11428571,13.0285714 C4.11428571,7.99327149 7.99327149,4.11428571 13.0285714,4.11428571 L21.9428571,4.11428571 C23.0789858,4.11428571 24,3.19327149 24,2.05714286 C24,0.921014229 23.0789858,0 21.9428571,0 L13.0285714,0 C5.72101423,0 0,5.72101423 0,13.0285714 L0,21.9428571 C0,23.0789858 0.921014229,24 2.05714286,24 C3.19327149,24 4.11428571,23.0789858 4.11428571,21.9428571 Z"/>
+              </g>
+            </g>
+            <g id="Eye" transform="translate(21.754386, 28.070175)" fill-rule="nonzero">
+              <path d="M0,2.14285714 L0,7.86037654 C0,9.04384386 0.8954305,10.0032337 2,10.0032337 C3.1045695,10.0032337 4,9.04384386 4,7.86037654 L4,2.14285714 C4,0.959389822 3.1045695,0 2,0 C0.8954305,0 0,0.959389822 0,2.14285714 Z" id="Path"/>
+            </g>
+            <g id="Eye" transform="translate(54.736842, 28.070175)" fill-rule="nonzero">
+              <path d="M0,2.14285714 L0,7.86037654 C0,9.04384386 0.8954305,10.0032337 2,10.0032337 C3.1045695,10.0032337 4,9.04384386 4,7.86037654 L4,2.14285714 C4,0.959389822 3.1045695,0 2,0 C0.8954305,0 0,0.959389822 0,2.14285714 Z" id="Path"/>
+            </g>
+              <path d="M25.9319616,59.0829234 C29.8331111,62.7239962 34.5578726,64.5614035 40,64.5614035 C45.4421274,64.5614035 50.1668889,62.7239962 54.0680384,59.0829234 C54.9180398,58.2895887 54.9639773,56.9574016 54.1706427,56.1074002 C53.377308,55.2573988 52.0451209,55.2114613 51.1951195,56.0047959 C48.0787251,58.9134307 44.382434,60.3508772 40,60.3508772 C35.617566,60.3508772 31.9212749,58.9134307 28.8048805,56.0047959 C27.9548791,55.2114613 26.622692,55.2573988 25.8293573,56.1074002 C25.0360227,56.9574016 25.0819602,58.2895887 25.9319616,59.0829234 Z" id="Mouth" fill-rule="nonzero"/>
+              <path d="M40,30.1754386 L40,44.9122807 C40,45.85537 39.539042,46.3157895 38.5912711,46.3157895 L37.1929825,46.3157895 C36.0302777,46.3157895 35.0877193,47.2583479 35.0877193,48.4210526 C35.0877193,49.5837574 36.0302777,50.5263158 37.1929825,50.5263158 L38.5912711,50.5263158 C41.8633505,50.5263158 44.2105263,48.1818819 44.2105263,44.9122807 L44.2105263,30.1754386 C44.2105263,29.0127339 43.2679679,28.0701754 42.1052632,28.0701754 C40.9425584,28.0701754 40,29.0127339 40,30.1754386 Z" id="Nose" fill-rule="nonzero"/>
+          </g>
+        </g>
+      </svg>
+    </button>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="signin">
+  <form class="form" action="/login" method="POST">
+    <div class="wrap-input validate-input m-b-10" data-validate="Username is required">
+      <input class="input" type="text" name="email" placeholder="Email">
+      <span class="focus-input"></span>
+      <span class="symbol-input">
+        <i class="fa fa-envelope"></i>
+      </span>
+    </div>
+    <div class="wrap-input validate-input m-b-10" data-validate="Password is required">
+      <input class="input" type="password" name="password" placeholder="Password">
+      <span class="focus-input"></span>
+      <span class="symbol-input">
+        <i class="fa fa-lock"></i>
+      </span>
+    </div>
+    <div class="container-login-form-btn">
+      <button class="login-form-btn">
+        Login
+      </button>
+    </div>
+    <div class="center">
+      <a href="/recover" class="small">
+        Forgot Password?
+      </a>
+    </div>
+    <br>
+    <h3 class="center smaller">Or with</h3>
+    <div class="socials">
+      <a href="/auth/facebook">
+        <div class='icon social fb'><i class='fab fa-facebook'></i></div>
+      </a>
+      <a href="/auth/google">
+        <div class='icon social google'><i class='fab fa-google'></i></div>
+      </a>
+    </div>
+  </form>
+</div>
+-->
+

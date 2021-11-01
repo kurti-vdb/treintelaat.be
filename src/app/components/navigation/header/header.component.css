@@ -1,0 +1,123 @@
+nav {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+  padding-right: 100px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+nav a:hover {
+  color: #aaa;
+}
+nav .active>a {
+  color: rgb(14 190 255 / 100%);
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  /*font-family: 'Comfortaa', cursive;*/
+}
+.logo img {
+  width: 75px;
+}
+.logo-title {
+  text-transform: uppercase;
+  margin-top: 30px;
+  font-size: 1.3rem;
+  margin-left: 5px;
+}
+.menu-checkbox, .menu-icon {
+  display: none;
+}
+.navicon:before {
+  content:'\2630';
+  font-size: 1.5rem;
+}
+.avatar img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.nav-right {
+  display: flex;
+}
+
+nav {
+  border-bottom: 1px solid #f1f1f1;
+  padding-right: 0px;
+}
+
+.logo-title {
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-left: 25px;
+  margin-right: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.menu-icon {
+  display: block;
+}
+.menu-checkbox {
+  display: block;
+  position:relative;
+  left: -17px;
+  top: 12px;
+  opacity: 0;
+}
+nav ul li {
+  display: none;
+  padding: 5px;
+}
+nav ul li:hover {
+  color: #fff;
+}
+.nav-items {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  position: absolute;
+  right: 5px;
+  top: 55px;
+  transition: display .2s ease-out;
+}
+.nav-items a {
+  padding: 0 ;
+}
+.menu-checkbox:checked ~ .nav-items li {
+  display: block;
+}
+.username {
+  margin-right: 15px;
+}

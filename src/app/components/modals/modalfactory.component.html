@@ -1,0 +1,8 @@
+<div class="modal-wrapper">
+  <div id="modal" class="modal">
+    <div class="wrapper">
+      <app-join (modalEvent)="openOtherModal($event)" *ngIf="showJoinModal"></app-join>
+      <app-login (modalEvent)="openOtherModal($event)" *ngIf="showLoginModal"></app-login>
+    </div>
+  </div>
+</div>

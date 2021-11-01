@@ -1,16 +1,10 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import { NgxLoggerLevel } from 'ngx-logger';
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:3000',
+  spacesUrl: 'https://upsights.fra1.digitaloceanspaces.com/treintelaat.be/avatars/',
+  logLevel: NgxLoggerLevel.DEBUG,
+  GoogleLoginProvider: '1000033131869-f9o12jnejio0i95eggh33n4rlc5robec.apps.googleusercontent.com',
+  FacebookLoginProvider: '436603994158707'
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

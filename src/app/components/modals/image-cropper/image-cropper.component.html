@@ -1,0 +1,23 @@
+
+<input formcontrolName="file" type="file" accept='image/*' (change)="fileChangeEvent($event)" class="upload-btn" #selectfile>
+
+<i class="fas fa-cloud-upload-alt" (click)="selectfile.click()"></i>
+<div id="image-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1"
+        format="png"
+        [autoCrop]="true"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+
+  </div>
+</div>
+
+

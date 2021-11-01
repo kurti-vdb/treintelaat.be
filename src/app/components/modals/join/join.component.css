@@ -1,0 +1,168 @@
+a {
+  text-decoration: none;
+}
+button:focus, input:focus{
+  outline: none;
+}
+.form-container {
+  background: #fff;
+  border-radius: 35px;
+  max-width: 360px;
+  max-height: 699px;
+  margin: 5% auto;
+  color: #002832;
+  padding: 30px 25px;
+  box-shadow:0 9px 12px 0 rgba(0, 0, 0, 0.20);
+  position: relative;
+}
+h1 {
+  margin-bottom: 0px;
+}
+.subtitle {
+  color: #757575;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+input[type="text"], input[type="password"] {
+  font-size: 1rem;
+  background: #f4f4f4;
+  margin: 10px auto;
+  border-radius: 15px;
+  height: 60px;
+  padding: 20px 40px;
+  width: 100%;
+  border: 0px;
+}
+input:-webkit-autofill{
+  box-shadow: 0 0 0px 1000px #f4f4f4 inset;
+}
+.password-input {
+  position: relative;
+}
+svg {
+  color: #585858;
+  position: absolute;
+  top: 33px;
+  right: 30px;
+}
+a.forgot-password {
+  float: right;
+  text-align: right;
+  font-size: 0.75rem;
+  margin-right: 10px;
+  color:  #002832;
+}
+a.forgot-password:hover {
+  color:#757575;
+}
+.btn-submit {
+  font-size: 1rem;
+  background: #f4f4f4;
+  color: #fff;
+  background: #33c9ff;
+  background: #ff3378;
+  background: #f4f4f4;
+  color: #002832;
+  margin: 10px auto;
+  border-radius: 15px;
+  height: 60px;
+  padding: 20px 40px;
+  width: 100%;
+  border: 0px;
+}
+.no-account {
+ text-align: center;
+ font-size: 0.75rem;
+ color: #002832;
+ margin-bottom: 30px;
+}
+.no-account a {
+  color: #002832;
+  margin-left: 7px;
+  font-weight: 600;
+}
+.no-account a:hover {
+  color:#757575;
+}
+.social-login-title {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #002832;
+}
+.social-login-title:before, .social-login-title:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #d9d9d9;
+  margin: auto;
+}
+.social-login-title:before {
+  margin-right: 10px
+}
+.social-login-title:after {
+  margin-left: 10px
+}
+.social-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.social-buttons button {
+  width: 48%;
+  border-radius: 15px;
+  height: 60px;
+  padding: 20px 0px;
+  border: 0px;
+  font-size: 0.9rem;
+}
+button.facebook {
+  margin-right: 1%;
+  background: #002832;
+  color: #fff;
+}
+button.google {
+  margin-left: 1%;
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #d9d9d9 !important;
+}
+button {
+  position: relative;
+  padding: auto;
+}
+button.face-id svg {
+  display: inline;
+  position: relative;
+  top: -1px;
+  right: -10px;
+}
+.close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+.error {
+  color: red;
+  font-size: 0.75rem;
+  margin-left: 20px;
+}
+.disabled {
+  color: rgb(194, 194, 194);
+}
+
+@media (max-width: 414px) {
+  .login-container {
+    /*border: 6px solid #002832;*/
+    min-height: 85vh;
+    margin: 2% auto 5%;
+  }
+  .subtitle{
+    margin-bottom: 10px;
+  }
+  .social-login-title {
+    margin-top: 10px;
+  }
+}

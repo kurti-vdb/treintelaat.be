@@ -1,0 +1,98 @@
+.blockquote-wrapper {
+  display: flex;
+  margin-top: 75px;
+  justify-content: center;
+  align-items: center;
+}
+.blockquote {
+  color: #002832;
+  font-family: 'Staatliches', cursive;
+  max-width: 450px;
+  margin: 30px auto;
+  align-self: center;
+}
+
+.blockquote h1 {
+  color: #002832;
+  position: relative;
+  font-size: 3.5rem;
+  font-weight: normal;
+  line-height: 0.8;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+.blockquote h1:before {
+  content:"’";
+  position: absolute;
+  top: -5rem;
+  left: -6rem;
+  font-size: 30rem;
+  line-height: 0.7;
+  color: rgba(206, 255, 246, 0.8);
+  color: rgba(0, 0, 255, 0.5);
+  text-shadow: -3rem -3rem 0 rgba(206, 255, 246, 0.6);
+  text-shadow: 3rem 3rem 0 rgba(15, 19, 246, 0.2);
+  z-index: -1;
+}
+.blockquote h1:after {
+  content:"’";
+  position: absolute;
+  top: 6rem;
+  left: 20rem;
+  font-size: 30rem;
+  line-height: 0.7;
+  color: rgba(0, 0, 255, 0.5);
+  color: rgb(14 190 255 / 60%);
+  text-shadow: 3rem 3rem 0 rgba(0, 255, 246, 0.5);
+  z-index: -1;
+}
+
+img {
+  width: 800px;
+}
+.btn-wrapper{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
+}
+.btn-wrapper a {
+  border-radius: 15px;
+  border: solid 1px #002832;
+  cursor: pointer;
+
+  width: 150px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .blockquote-wrapper {
+    display: flex;
+    flex-direction: column;
+
+  }
+  img {
+    width: 350px;
+  }
+
+  .blockquote h1 {
+    font-size: 2.5rem;
+  }
+  .blockquote h1:before {
+
+    top: -1rem;
+    left: 0rem;
+    font-size: 20rem;
+
+  }
+  .blockquote h1:after {
+    top: 3rem;
+    left: 15rem;
+    font-size: 20rem;
+  }
+}

@@ -3,6 +3,9 @@
     <div class="wrapper">
       <app-join (modalEvent)="openOtherModal($event)" *ngIf="showJoinModal"></app-join>
       <app-login (modalEvent)="openOtherModal($event)" *ngIf="showLoginModal"></app-login>
+
+      <app-adddelay  *ngIf="showAddDelayModal"></app-adddelay>
+
     </div>
   </div>
 </div>

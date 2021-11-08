@@ -93,9 +93,12 @@
   touch-action: none;
 }
 i {
-  margin-bottom: 35px;
+  margin: 25px 0;
 }
 .upload-btn {
   display: none;
+}
+.fas {
+  color: #757575;
 }
 

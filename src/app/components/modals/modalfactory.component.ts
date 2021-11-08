@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EModal } from 'src/app/models/enums/modals';
@@ -10,16 +10,17 @@ import { ModalService } from 'src/app/services/modal.service';
   templateUrl: './modalfactory.component.html',
   styleUrls: ['./modalfactory.component.css']
 })
-export class ModalFactoryComponent implements OnInit, OnChanges {
+export class ModalFactoryComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() modalID!: string;
   @Output() modalEvent = new EventEmitter<string>();
-  public subscription = new Subscription();
+  public modalSubscription = new Subscription();
 
   showJoinModal: boolean = false;
   showLoginModal: boolean = false;
   showRecoverModal: boolean = false;
   showPinMachineModal: boolean = false;
+  showAddDelayModal: boolean = false;
 
   modals: boolean [] = [
     this.showJoinModal,
@@ -28,17 +29,24 @@ export class ModalFactoryComponent implements OnInit, OnChanges {
     this.showPinMachineModal
   ]
 
-  constructor(private modalService: ModalService) { }
+  constructor(
+    private modalService: ModalService
+  ) { }
 
   ngOnInit(): void {
-    this.subscription = this.modalService.getClickCall().subscribe(modalID => {
+    this.modalSubscription = this.modalService.getClickCall().subscribe(modalID => {
       this.setModal(modalID);
     });
+
     this.closeModal();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     this.setModal(changes.modalID.currentValue);
+  }
+
+  ngOnDestroy(): void {
+    this.modalSubscription.unsubscribe();
   }
 
   setModal(value: string) {
@@ -51,6 +59,7 @@ export class ModalFactoryComponent implements OnInit, OnChanges {
     this.showLoginModal = false;
     this.showRecoverModal = false;
     this.showPinMachineModal = false;
+    this.showAddDelayModal = false;
 
     switch(value) {
       case EModal.LOGIN:
@@ -64,6 +73,9 @@ export class ModalFactoryComponent implements OnInit, OnChanges {
         break;
       case EModal.PINMACHINE:
         this.showPinMachineModal = true;
+        break;
+      case EModal.ADDDELAY:
+        this.showAddDelayModal = true;
         break;
     }
 

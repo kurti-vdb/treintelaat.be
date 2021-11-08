@@ -1,0 +1,31 @@
+<form class="login-container" [formGroup]="form">
+  <h1>{{ 'delay' | translate  }}</h1>
+  <span class="close" (click)="closeModal()">&times;</span>
+  <div class="input-container">
+
+    <input type="hidden" value="" formControlName="username">
+    <input type="hidden" value="" formControlName="userID">
+    <input type="text" placeholder="{{ 'from' | translate }}" value="" formControlName="from">
+    <input type="text" placeholder="{{ 'to' | translate }}" value="" formControlName="to" >
+
+    <div class="center">
+      <app-image-cropper (onSelectImage)='selectImage($event)'></app-image-cropper>
+    </div>
+
+    <div class="slider-container">
+        <label for="delay">{{ 'delay' | translate }}</label>
+        <div class="range-slider">
+          <i class="fa fa-minus" aria-hidden="true"></i>
+          <input type="range" class="delay" min="1" max="120" step="1" [value]="delay" formControlName="delay">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+    </div>
+
+
+    <button class="btn-login">{{ 'send' | translate  }}</button>
+  </div>
+</form>
+
+
+
+

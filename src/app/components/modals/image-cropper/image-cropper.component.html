@@ -1,7 +1,7 @@
 
-<input formcontrolName="file" type="file" accept='image/*' (change)="fileChangeEvent($event)" class="upload-btn" #selectfile>
+<input type="file" accept='image/*' (change)="fileChangeEvent($event)" [attr.capture]="camera" class="upload-btn" #selectfile>
 
-<i class="fas fa-cloud-upload-alt" (click)="selectfile.click()"></i>
+<i class="fas fa-image" (click)="selectfile.click()"></i>
 <div id="image-modal" class="modal">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>

@@ -30,6 +30,7 @@ import { ModalFactoryComponent } from './components/modals/modalfactory.componen
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ImageCropperComponent } from './components/modals/image-cropper/image-cropper.component';
+import { AdddelayComponent } from './components/modals/adddelay/adddelay.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ImageCropperComponent } from './components/modals/image-cropper/image-c
     BodyComponent,
     DashboardComponent,
     ProfileComponent,
-    ImageCropperComponent
+    ImageCropperComponent,
+    AdddelayComponent
   ],
   imports: [
     BrowserModule,

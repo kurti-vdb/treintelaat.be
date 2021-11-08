@@ -263,6 +263,21 @@ router.put("/api/user/:id", checkAuth.oAuth, (req, res, next) => {
 })
 
 
+router.post("/api/user/delay", checkAuth.oAuth, (req, res, next) => {
+
+  let fetchedUser;
+  User.findOne({ _id: req.body.userID }).then(user => {
+
+    user.delays.push();
+  })
+  .catch(err => {
+    logger.error(err);
+    res.status(400).json({ success: false, title: "Er ging iets verkeerd, probeer het later opnieuw", message: err });
+  })
+})
+
+
+
 // Helpers
 
 async function verifyGoogleToken(token) {

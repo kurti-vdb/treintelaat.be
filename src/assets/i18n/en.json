@@ -4,6 +4,8 @@
   "user": "User",
   "destination-from": "From",
   "destination-to": "To",
+  "from": "Van",
+  "to": "Naar",
   "date": "Time",
   "delay": "Delay",
   "overview": "Overview",
@@ -20,5 +22,6 @@
   "lastname": "Lastname",
   "city": "City",
   "country": "Country",
-  "save": "Save"
+  "save": "Save",
+  "send": "Send"
 }

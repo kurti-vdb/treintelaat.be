@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscription } from 'rxjs';
+import { ECamera } from 'src/app/models/enums/camera';
 import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CameraService } from 'src/app/services/camera.service';
 import { ValidateEmail } from 'src/app/utils/validate-email';
 import { environment } from 'src/environments/environment';
 
@@ -12,14 +14,14 @@ import { environment } from 'src/environments/environment';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
   public base64Image: any; // Wordt door image-cropper met een emitter opgevuld
   public spacesUrl!: string;
   public user: User = new User();
   public isSocialLogin: boolean = false;
   public timeStamp: Number = (new Date()).getTime();
-  private flashMessageListenerSubscription: Subscription = new Subscription();
+  private flashMessageSubscription: Subscription = new Subscription();
 
   public form: FormGroup = new FormGroup({
     username: new FormControl(),
@@ -31,8 +33,10 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private toasterService: ToastrService
+    private toasterService: ToastrService,
+    private cameraService: CameraService
   ) { }
+
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
@@ -45,7 +49,7 @@ export class ProfileComponent implements OnInit {
     this.form.get("city")?.setValue(this.user.city);
     this.form.get("country")?.setValue(this.user.country);
 
-    this.flashMessageListenerSubscription = this.authService.getflashMessageListener().subscribe(response => {
+    this.flashMessageSubscription = this.authService.getflashMessageListener().subscribe(response => {
       this.toasterService.success(
         response.message.body,
         response.message.title,
@@ -55,6 +59,12 @@ export class ProfileComponent implements OnInit {
           progressAnimation: 'decreasing'
         });
     });
+
+    this.cameraService.setCameraType(ECamera.FRONT);
+  }
+
+  ngOnDestroy(): void {
+    this.flashMessageSubscription.unsubscribe();
   }
 
   selectImage( base64Data : any ) {
@@ -84,8 +94,6 @@ export class ProfileComponent implements OnInit {
     }, (err: any) => {
       console.log(err);
     })
-
-
   }
 
   getAvatarFromSpaces() {

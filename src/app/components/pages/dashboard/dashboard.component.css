@@ -2,3 +2,94 @@ h4 {
   margin-top: 20px;
   text-align: center;
 }
+.profile-row {
+  width: 355px;
+  margin: 0 auto;
+  display: flex;
+  /*padding-left: 10%;
+  padding-right: 10%;*/
+}
+.circle {
+  position: relative;
+  top: 6px;
+  left: 6px;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.circle-border {
+  position: relative;
+  text-align: center;
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+  background-color: #f0f0f0;
+  background-image: linear-gradient(300deg, transparent 50%, #ff3378 50%), linear-gradient(90deg, #ff3378 50%, transparent 50%);
+}
+.circle img {
+  border-radius: 50%;
+  width: 86px;
+  height: 86px;
+}
+.small {
+  font-size: 0.8rem;
+  color: #fff;
+}
+.very-small {
+  font-size: 0.7rem;
+}
+form {
+  margin-top: 45px;
+}
+input[type=text]  {
+  font: inherit;
+  outline: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #eee;
+  width: 90%;
+  font-size: 1rem;
+  padding: 3px 3px 3px 10px;
+  color: #4a4a4a;
+  resize: none;
+  margin-bottom: 25px;
+}
+input[type=text] :hover, input[type=text]:focus {
+  background: #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 15px;
+}
+.btn-wrapper{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
+}
+button {
+  border-radius: 15px;
+  border: solid 1px #002832;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+

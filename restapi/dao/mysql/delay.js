@@ -26,3 +26,29 @@ exports.getDelay = function(delay, callback) {
   else
     callback({ error: "Delay not found" });
 };
+
+exports.addDelay = function(delay, callback) {
+
+  if (delay) {
+
+    let sql = `INSERT INTO delay`;
+
+    pool.getConnection(function(err, connection) {
+      if(err) {
+        callback(err);
+        return;
+      }
+      connection.query(sql, function(err, result) {
+        connection.release();
+        if(err) {
+            callback(err);
+            return;
+        }
+        callback(result);
+      });
+    });
+  }
+  else
+    callback({ error: "Er ging iets verkeerd, probeer later opnieuw." });
+};
+

@@ -85,3 +85,8 @@ button {
   text-align: center;
   margin: 0 auto;
 }
+
+.delay {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(0, 204, 255)), to(rgb(0, 204, 255)));
+  background-size: 48.9796% 100%;
+}

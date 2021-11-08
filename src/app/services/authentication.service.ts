@@ -198,7 +198,6 @@ export class AuthenticationService {
     this.clearAuthData();
   }
 
-
   public emailExists (email: string): Observable<[]> {
     let response: Observable<[]> = this.http.post<any>(environment.apiUrl + '/api/user/findemail', { email });
     return response;
